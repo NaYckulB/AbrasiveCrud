@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Abrasive List</title>
+<style>
+body {
+    background: none;
+}
+
+/* Styling for buttons */
+button {
+    cursor: pointer;
+}
+
+/* Styling for table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: red; /* Red background color */
+}
+
+/*  Styling for table cells */
+table, th, td {
+    border: 1px solid black; /* Chenare pentru celule */
+}
+
+/* Borders for imput*/
+input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+</style>
+</head>
+<body>
+    <form action="#" th:action="@{/save}" th:object="${abrasive}" method="post">
+        <table>
+            <tr>
+                <td>Cod:</td>
+                <td><input type="text" th:field="*{cod}" /></td>
+            </tr>
+            <tr>
+                <td>Typematerial:</td>
+                <td><input type="text" th:field="*{typematerial}" /></td>
+            </tr>
+            <tr>
+                <td>Application:</td>
+                <td><input type="text" th:field="*{application}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Save</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

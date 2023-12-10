@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Abrasive List</title>
+<style>
+body {
+    background: none;
+}
+
+/* Styling for buttons */
+button {
+    cursor: pointer;
+}
+
+/* Styling for table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: red; /* Red background color */
+}
+
+/* Styling for table cells */
+table, th, td {
+    border: 1px solid black; /* Borders for cells */
+}
+
+</style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Abrasive cod</th>
+            <th>Typematerial</th>
+            <th>Application</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="abrasive : ${listabrasive}">
+            <td th:text="${abrasive.cod}"></td>
+            <td th:text="${abrasive.typematerial}"></td>
+            <td th:text="${abrasive.application}"></td>
+            <!-- Buton for Edit -->
+            <td>
+                <form th:action="@{/edit/{cod}(cod=${abrasive.cod})}" method="get">
+                    <button type="submit">Edit</button>
+                </form>
+            </td>
+            <!-- Buton de Delete -->
+            <td>
+                <form th:action="@{/delete/{cod}(cod=${abrasive.cod})}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
